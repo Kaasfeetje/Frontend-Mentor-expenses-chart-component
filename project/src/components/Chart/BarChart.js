@@ -1,7 +1,6 @@
 import React from "react";
 
 const BarChart = ({ expense, percentage, selected, setSelectedBar }) => {
-    console.log(percentage);
     return (
         <div
             className={`barchart ${selected ? "selected" : ""}`}
