@@ -1,0 +1,187 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap");
+
+:root {
+    --softRed: hsl(10, 79%, 65%);
+    --cyan: hsl(186, 34%, 60%);
+    --darkBrown: hsl(25, 47%, 15%);
+    --mediumBrown: hsl(28, 10%, 53%);
+    --cream: hsl(27, 66%, 92%);
+    --veryPaleOrange: hsl(33, 100%, 98%);
+
+    --mSize: 36px;
+    --tSize: 40px;
+    --lSize: 50px;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: "DM Sans", sans-serif;
+    background-color: var(--cream);
+    font-size: 18px;
+    color: var(--darkBrown);
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    padding: 1rem;
+}
+
+.balance {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--softRed);
+    padding: 1rem;
+    border-radius: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.balance h3 {
+    font-size: 1rem;
+    color: var(--cream);
+    margin-bottom: 0.5rem;
+    font-weight: 400;
+}
+
+.balance h2 {
+    font-size: 1.5rem;
+    color: var(--veryPaleOrange);
+}
+
+.spendings {
+    background-color: var(--veryPaleOrange);
+    border-radius: 0.75rem;
+    padding: 1rem;
+}
+
+.spendings h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.chart {
+    display: grid;
+    grid-template-columns:
+        var(--mSize) var(--mSize) var(--mSize) var(--mSize) var(--mSize)
+        var(--mSize) var(--mSize);
+    column-gap: 0.5rem;
+}
+
+.barchart {
+    display: flex;
+    flex-direction: column;
+    margin-top: auto;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.barchart .amount {
+    visibility: hidden;
+    color: var(--veryPaleOrange);
+    background-color: var(--darkBrown);
+    border-radius: 0.5rem;
+    padding: 0.25rem 0.5rem;
+    margin-bottom: 0.25rem;
+    width: fit-content;
+    z-index: 1;
+}
+
+.barchart:hover .amount,
+.barchart.selected .amount {
+    visibility: visible;
+}
+
+.barchart .bar {
+    background-color: var(--softRed);
+    width: var(--mSize);
+    border-radius: 0.25rem;
+}
+
+.barchart.selected .bar {
+    background-color: var(--cyan);
+}
+
+.barchart .day {
+    color: var(--mediumBrown);
+    margin-top: 0.75rem;
+}
+
+.expenses {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--mediumBrown);
+}
+
+.expenses h3 {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--mediumBrown);
+}
+
+.expenses h2 {
+    font-size: 1.75rem;
+    color: var(--darkBrown);
+    margin-top: 0.25rem;
+}
+
+.expenses .percentage {
+    text-align: right;
+}
+
+.home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.attribution {
+    position: absolute;
+    bottom: 0.5rem;
+    width: fit-content;
+    color: var(--darkBrown);
+}
+
+.attribution a {
+    color: var(--softRed);
+}
+
+@media (min-width: 768px) {
+    .chart {
+        grid-template-columns:
+            var(--tSize) var(--tSize) var(--tSize) var(--tSize)
+            var(--tSize) var(--tSize) var(--tSize);
+    }
+    .barchart .bar {
+        width: var(--tSize);
+    }
+
+    .attribution br {
+        display: none;
+    }
+}
+
+@media (min-width: 1440px) {
+    .chart {
+        grid-template-columns:
+            var(--lSize) var(--lSize) var(--lSize) var(--lSize)
+            var(--lSize) var(--lSize) var(--lSize);
+    }
+    .barchart .bar {
+        width: var(--lSize);
+    }
+
+    .barchart:hover .bar {
+        opacity: 0.5;
+    }
+}
